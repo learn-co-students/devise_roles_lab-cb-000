@@ -1,0 +1,6 @@
+<% if current_user.present? %>
+  <h2>Welcome <%= current_user.name %></h2>
+  <%= current_user.email %>
+<% else %>
+  <h2>Welcome</h2>
+<% end %>
