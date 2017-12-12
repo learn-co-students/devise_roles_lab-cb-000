@@ -1,0 +1,7 @@
+<h1>Welcome</h1>
+
+<% if @users %>
+  <% @users.each do |user| %>
+    <%= user.email %>
+  <% end %>
+<% end %>
