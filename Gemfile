@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+
+ruby '2.3.1'
+
 gem 'rails'
 gem 'sass-rails'
 gem 'uglifier'
@@ -7,6 +10,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'high_voltage'
 gem 'sqlite3'
+gem 'cancancan', '~> 2.0'
 
 group :development do
   gem 'better_errors'
