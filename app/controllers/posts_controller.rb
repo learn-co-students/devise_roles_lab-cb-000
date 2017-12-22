@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_post!, only: [:edit, :show, :update, :destroy]
   before_action :authorize_user!, only: [:edit, :update]
-  before_action :admin_only!, only: [:destroy]
+  before_action :admin_and_owner_only!, only: [:destroy]
 
 
   def index
@@ -47,8 +47,8 @@ class PostsController < ApplicationController
     redirect_to posts_path, alert: 'Access Denied' unless current_user == @post.user || current_user.admin? || current_user.vip?
   end
 
-  def admin_only!
-    redirect_to posts_path, alert: 'Access Denied.' unless current_user.admin?
+  def admin_and_owner_only!
+    redirect_to posts_path, alert: 'Access Denied.' unless current_user.admin? || current_user == @post.user
   end
 
   def find_post!

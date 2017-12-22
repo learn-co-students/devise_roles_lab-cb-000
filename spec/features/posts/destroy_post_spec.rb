@@ -8,7 +8,18 @@ feature 'Show Post', :devise do
     expect(page).to have_content 'Successfully deleted post.'
   end
 
-  scenario 'post cannot be destroyed by anyone but an admin' do
+  scenario 'post can be destroyed by owner' do
+    user = FactoryGirl.create(:user, email: 'test@example.com', password: 'please123')
+    post = FactoryGirl.create(:post, content: 'content')
+    post.user = user
+    post.save
+    sign_in('test@example.com', 'please123')
+    visit post_path(post)
+    click_link 'Delete'
+    expect(page).to have_content 'Successfully deleted post.'
+  end
+
+  scenario 'post cannot be destroyed by anyone but an admin and owner' do
     FactoryGirl.create(:user, email: 'test@example.com', password: 'please123')
     post = FactoryGirl.create(:post, content: 'content')
     sign_in('test@example.com', 'please123')
