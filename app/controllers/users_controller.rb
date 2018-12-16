@@ -8,12 +8,19 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if !current_user.admin? && current_user != @user
       flash[:alert] = "Access denied."
-      redirect_to root_path
-    end 
+      redirect_to posts_path
+    end
   end
 
   def destroy
-    session.destroy
+    @user = User.find(params[:id])
+    if !current_user.admin? && current_user != @user
+      flash[:alert] = "Access denied."
+      redirect_to posts_path
+    else
+      @user.destroy
+      redirect_to posts_path
+    end
   end
 
 end

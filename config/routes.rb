@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'visitors#index'
 
   resources :users
+  resources :posts
 
   get '/pages/about' => 'visitors#about'
 end
