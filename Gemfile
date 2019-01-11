@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'rails'
+gem 'rails', '~> 4.2'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
