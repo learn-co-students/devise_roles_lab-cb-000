@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   def show
     unless current_user.admin?
       unless @user == current_user
-        redirect_to :back, :alert => "Access denied."
+        redirect_back fallback_location: root_path, :alert => "Access denied."
       end
     end
   end
