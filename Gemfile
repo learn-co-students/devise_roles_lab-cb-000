@@ -6,18 +6,18 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'devise'
 gem 'high_voltage'
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.3.6'
 
 group :development do
   gem 'better_errors'
-  gem 'quiet_assets'
+#  gem 'quiet_assets'
   gem 'rails_layout'
   gem 'web-console'
 end
 
 group :development, :test do
   gem 'byebug'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec-rails'
 end
