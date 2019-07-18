@@ -1,0 +1,6 @@
+
+  <h2>Post by <%= @post.user.email %></h2>
+  <p><%= @post.content %></p>
+  <% if @user == current_user || current_user.vip? || current_user.admin? %>
+    <a href="/posts/<%= "#{@post.id}" %>/edit">Edit</a>
+  <% end %>
