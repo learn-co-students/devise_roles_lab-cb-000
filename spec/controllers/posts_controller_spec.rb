@@ -1,4 +1,11 @@
 describe PostsController do
+  describe '#show' do
+    it 'any one can access a post' do
+      post = Post.create(content: 'this is awesome!')
+      get :show, params: {id: post.id}
+      expect(response).to have_http_status(:success)
+    end
+  end
   describe '#update' do
     context 'neither admin nor vip' do
       before do
