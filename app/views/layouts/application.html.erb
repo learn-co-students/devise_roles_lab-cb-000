@@ -8,6 +8,13 @@
   </head>
 
   <body>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+    <% end %>
+    <%= render 'layouts/navbar' %>    
     <%= yield %>
+    <footer>
+      <p><%= current_user.email if user_signed_in? %></p>
+    </footer>    
   </body>
 </html>

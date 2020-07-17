@@ -13,7 +13,7 @@ feature 'Sign out', :devise do
     user = FactoryBot.create(:user)
     sign_in(user.email, user.password)
     expect(page).to have_content I18n.t 'devise.sessions.signed_in'
-    click_link 'Sign out'
+    click_button 'Sign out'
     expect(page).to have_content I18n.t 'devise.sessions.signed_out'
   end
 
