@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2016_01_18_210027) do
+ActiveRecord::Schema.define(version: 2019_11_20_104403) do
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "content"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

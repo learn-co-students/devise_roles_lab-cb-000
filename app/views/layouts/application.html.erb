@@ -4,7 +4,9 @@
     <title>DeviseRolesLab</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <% flash.each do |msg| %>
+      <%= msg %>
+    <% end %>
   </head>
 
   <body>
